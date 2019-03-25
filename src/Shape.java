@@ -1,4 +1,5 @@
 
-public class Shape {
-
+public enum Shape
+{
+	
 }

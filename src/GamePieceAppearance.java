@@ -1,4 +1,5 @@
 
-public class GamePieceAppearance {
+public class GamePieceAppearance
+{
 
 }
