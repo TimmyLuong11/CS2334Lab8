@@ -12,7 +12,7 @@ public enum Color
 	BLUE(0,0,255),
 	YELLOW(255,255,0),
 	CYAN(0,255,255),
-	MEGENTA(255,0,255);
+	MAGENTA(255,0,255);
 	
 	private int r, g, b;
 	

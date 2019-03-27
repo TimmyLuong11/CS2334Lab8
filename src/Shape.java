@@ -11,37 +11,16 @@ public enum Shape
 	BOOT,
 	RACECAR;
 	
-/*	private String shape;
-	
-	Shape(String shape)
-	{
-		this.shape = shape;
-	}
-	
-	public String getShape()
-	{
-		return this.shape;
-	}
-	*/
 	/**
+	 * Gives the name of the value of the enum object, in lowercase.
+	 * 
 	 * @return The enum object's name (either thimble, boot, racecar) in lowercase. 
 	 * (Look at the documentation for java enums to figure out how to get the enum value's name).
 	 */
 	@Override
 	public String toString()
 	{
-		return Shape.toString().toLowerCase();
+		return this.name().toLowerCase();
 	}
 	
-	/*public static Shape fromString(String shape) 
-	{
-        for (Shape s : Shape.values())
-        {
-            if (s.shape.equalsIgnoreCase(shape)) 
-            {
-                return s;
-            }
-        }
-        return null;
-    }*/
 }
