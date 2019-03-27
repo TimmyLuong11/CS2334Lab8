@@ -5,14 +5,16 @@ import java.util.Set;
 
 public class BoardGame
 {
-	protected LinkedHashMap<String, GamePiece> playerPieces = new LinkedHashMap<String, GamePiece>();
-	protected LinkedHashMap<String, Location> playerLocations = new LinkedHashMap<String, Location>();
+	protected LinkedHashMap<String, GamePiece> playerPieces;
+	protected LinkedHashMap<String, Location> playerLocations;
 	
 	/**
 	 * BoardGame constructor. Intializes the data structures tracking the players and the locations of their associated game pieces.
 	 */
 	public BoardGame()
 	{
+		playerPieces = new LinkedHashMap<String, GamePiece>();
+		playerLocations = new LinkedHashMap<String, Location>();
 		
 	}
 	
