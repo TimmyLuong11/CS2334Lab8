@@ -116,7 +116,7 @@ public class BoardGame
 	{
 		GamePiece one = GamePiece.movesFirst(playerPieces.get(playerNames[0]),playerPieces.get(playerNames[1]));
 		String name = getPlayerWithGamePiece(one);
-		if(name.equals(playerNames[1]))
+		if(name == playerNames[1])
 		{
 			String here = playerNames[0];
 			playerNames[0] = name;
