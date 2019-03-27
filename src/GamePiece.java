@@ -61,19 +61,15 @@ public enum GamePiece
 	 * @return The game piece with the lowest priority value. 
 	 * That is, the game piece that would take its turn first.
 	 */
-	public GamePiece moveFirst(GamePiece a, GamePiece b)
+	public static GamePiece movesFirst(GamePiece a, GamePiece b)
 	{
 		if(a.priority < b.priority)
 		{
 			return a;
 		}
-		else if (a.priority > b.priority)
+		else 
 		{
 			return b;
-		}
-		else
-		{
-			return a;
 		}
 	}
 	

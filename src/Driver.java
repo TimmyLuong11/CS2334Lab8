@@ -25,7 +25,28 @@ public class Driver
         System.out.println(bg.getPlayerGamePiece("Slime").getColor().getG());	
         System.out.println(bg.getPlayerGamePiece("Billy").getColor().getR());
 
-    	
-       
+        bg.movePlayer("Billy", Location.BALLROOM);
+        System.out.println(bg.getPlayersLocation("Billy"));
+        
+
+        String[] name = new String[2];
+        name[0] = "Billy";
+        name[1] = "Slime";
+        
+        Location[] loc = new Location[2];
+        loc[0] = Location.CONSERVATORY;
+        loc[1] = Location.BILLIARD_ROOM;
+        
+        System.out.println((bg.moveTwoPlayers(name, loc)).toString());
+        
+        
+        System.out.println(bg.getPlayersLocation("Slime"));
+        System.out.println(bg.getPlayersAtLocation(Location.BALLROOM));
+        System.out.println(bg.getPlayersAtLocation(Location.KITCHEN));
+
+        System.out.println(bg.getGamePiecesAtLocation(Location.BILLIARD_ROOM));
+        System.out.println(bg.getPlayers());
+        System.out.println(bg.getPlayerLocations());
+        System.out.println(bg.getPlayerPieces());
 	}
 }
