@@ -11,7 +11,9 @@ public class BoardGameTest
 	{
 	    BoardGame bg = new BoardGame();
 	   	Assert.assertEquals(true, bg.addPlayer("Timmy", GamePiece.RED_RACER, Location.CONSERVATORY));
-	   	Assert.assertEquals(false, bg.addPlayer("Timmy", GamePiece.MAGENTA_RACER, Location.BILLIARD_ROOM));
+	   	Assert.assertEquals(false, bg.addPlayer("Timmy", GamePiece.RED_RACER, Location.CONSERVATORY));
+	   	Assert.assertEquals(false, bg.addPlayer("Jimmy", GamePiece.RED_RACER, Location.CONSERVATORY));
+	   	Assert.assertEquals(true, bg.addPlayer("Timmy", GamePiece.MAGENTA_RACER, Location.BILLIARD_ROOM));
 	   	Assert.assertEquals(true, bg.addPlayer("Jayson", GamePiece.YELLOW_BOOT, Location.HALL));
 	}
 	
@@ -31,8 +33,8 @@ public class BoardGameTest
 		BoardGame bg = new BoardGame();
 	   	Assert.assertEquals(true, bg.addPlayer("Timmy", GamePiece.RED_RACER, Location.CONSERVATORY));
 	   	Assert.assertEquals(true, bg.addPlayer("Jayson", GamePiece.YELLOW_BOOT, Location.HALL));
-	   	Assert.assertEquals(GamePiece.RED_RACER, bg.getPlayerGamePiece("Timmy"));
-	   	Assert.assertEquals(GamePiece.YELLOW_BOOT, bg.getPlayerGamePiece("Jayson"));
+	   	Assert.assertEquals("Timmy", bg.getPlayerWithGamePiece(GamePiece.RED_RACER));
+	   	Assert.assertEquals("Jayson", bg.getPlayerWithGamePiece(GamePiece.YELLOW_BOOT));
 		Assert.assertEquals(null, bg.getPlayerWithGamePiece(GamePiece.GREEN_BOOT));
 	}
 	
@@ -66,6 +68,18 @@ public class BoardGameTest
 	    bg.moveTwoPlayers(name, loc);
 	    Assert.assertEquals(Location.KITCHEN, bg.getPlayersLocation("Timmy"));
 	    Assert.assertEquals(Location.STUDY, bg.getPlayersLocation("Jayson"));
+	    
+	    String[] name1 = new String[2];
+	    name1[0] = "Timmy";
+	    name1[1] = "Jayson";
+	        
+	    Location[] loc1 = new Location[2];
+	    loc1[0] = Location.KITCHEN;
+	    loc1[1] = Location.KITCHEN;
+	   
+	    bg.moveTwoPlayers(name1, loc1);
+	    Assert.assertEquals(Location.KITCHEN, bg.getPlayersLocation("Timmy"));
+	    Assert.assertEquals(Location.KITCHEN, bg.getPlayersLocation("Jayson"));
 	}
 	
 	@Test

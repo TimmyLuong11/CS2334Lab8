@@ -36,15 +36,19 @@ public class BoardGame
 	 */
 	public boolean addPlayer(String playerName, GamePiece gamePiece, Location initialLocation)
 	{
-		if(!playerPieces.containsKey(playerName))
+		if(playerPieces.containsKey(playerName) && playerPieces.containsValue(gamePiece))
+		{
+			return false;
+		} 
+		else if (playerPieces.containsValue(gamePiece))
+		{
+			return false;
+		}
+		else
 		{
 			playerLocations.put(playerName, initialLocation);
 			playerPieces.put(playerName, gamePiece);
 			return true;
-		} 
-		else
-		{
-			return false;
 		}
 	}
 	
@@ -70,19 +74,15 @@ public class BoardGame
 	 */
 	public String getPlayerWithGamePiece(GamePiece gamePiece)
 	{
-		String playerName = "";
-		for(String name: playerPieces.keySet())
+		Set<String> player = playerPieces.keySet();
+		for (String name : player)
 		{
-			if(playerPieces.get(name) == gamePiece)
+			if(playerPieces.get(name) == gamePiece) 
 			{
-				playerName = name;
-			}
-			else
-			{
-				playerName = null;
+				return name;
 			}
 		}
-		return playerName;
+		return null;
 	}
 	
 	/**
@@ -115,12 +115,11 @@ public class BoardGame
 	public String[] moveTwoPlayers(String[] playerNames, Location[] newLocations)
 	{
 		GamePiece one = GamePiece.movesFirst(playerPieces.get(playerNames[0]),playerPieces.get(playerNames[1]));
-		String name = getPlayerWithGamePiece(one);
-		if(name == playerNames[1])
+		String[] newPlayer = new String[playerNames.length];
+		if(one.equals(playerPieces.get(playerNames[0])))
 		{
-			String here = playerNames[0];
-			playerNames[0] = name;
-			playerNames[1] = here;
+			newPlayer[0] = playerNames[0];
+			newPlayer[1] = playerNames[1];
 		}
 		
 		movePlayer(playerNames[0], newLocations[0]);
