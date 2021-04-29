@@ -120,11 +120,10 @@ public class BoardGame
 		{
 			newPlayer[0] = playerNames[0];
 			newPlayer[1] = playerNames[1];
+			movePlayer(newPlayer[0], newLocations[0]);
+			movePlayer(newPlayer[1], newLocations[1]);
 		}
 		
-		movePlayer(playerNames[0], newLocations[0]);
-		movePlayer(playerNames[1], newLocations[1]);
-
 		return playerNames;
 	}
 	
